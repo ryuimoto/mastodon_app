@@ -274,6 +274,8 @@ Devise.setup do |config|
   [client.client_id, client.client_secret]
 }
 
+config.secret_key = '6047e099a3987a765fad6909562c040b097ff2356a250396f6fa386e9b1dccf3496621d5636a172bab3c6553e55dddb2d28a72f1ce21b43cd119d706c76f8fa3'
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
