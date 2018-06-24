@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :topics
+  resources :topics do
+    resources :comments 
+  end
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'mastodon_login#index'
   get 'mastodon_login/index'
