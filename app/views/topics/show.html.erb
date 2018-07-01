@@ -10,10 +10,6 @@
   <%= @topic.body %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @topic.user_id %>
-</p>
 <% if current_user.id == @topic.user_id %>
 <%= button_tag(link_to 'Edit', edit_topic_path(@topic)) %> |
 <%= button_tag(link_to 'Back', topics_path) %>
