@@ -14,9 +14,10 @@
   <strong>User:</strong>
   <%= @topic.user_id %>
 </p>
-
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<% if current_user.id == @topic.user_id %>
+<%= button_tag(link_to 'Edit', edit_topic_path(@topic)) %> |
+<%= button_tag(link_to 'Back', topics_path) %>
+<% end %>
 
 <h2>Comments</h2>
   <div id="comments">

@@ -2,5 +2,5 @@
 
 <%= render 'form', topic: @topic %>
 
-<%= link_to 'Show', @topic %> |
-<%= link_to 'Back', topics_path %>
+<%= button_tag(link_to 'Show', @topic) %> |
+<%= button_tag(link_to 'Back', topics_path) %>
