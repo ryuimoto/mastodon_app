@@ -1,1 +1,1 @@
-<p><%= comment.body %></p>
+<p><%= User.find(comment.user_id).uid %> : <%= comment.body %></p>
