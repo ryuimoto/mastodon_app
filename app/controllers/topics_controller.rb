@@ -24,11 +24,15 @@ class TopicsController < ApplicationController
   # POST /topics
   # POST /topics.json
   def create
+    
+    client = Mastodon::REST::Client.new(base_url: ENV["MASTODON_URL"], bearer_token: ENV["ACCESS_TOKEN"])
+    
     @topic = Topic.new(topic_params)
     @topic.user_id = current_user.id
 
     respond_to do |format|
       if @topic.save
+        response = client.create_status("新しいトピック:#{@topic.title} が作成されました！")
         format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
         format.json { render :show, status: :created, location: @topic }
       else
