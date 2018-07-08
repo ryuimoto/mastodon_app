@@ -1,9 +1,7 @@
-<header>
-    <%= link_to("Home", root_path)%>
-    <%= link_to("About", root_path)%>
-    <% if !user_signed_in? %>
-    <%= link_to("Sign In", user_mastodon_omniauth_authorize_path)%>
-    <% else %>
-    <%= link_to("Sign Out", destroy_user_session_path, method: :delete )%>
-    <% end %>
-</header>
+<%= link_to("Home", root_path)%>
+<%= link_to("About", root_path)%>
+<% if !user_signed_in? %>
+<%= link_to("Sign In", user_mastodon_omniauth_authorize_path)%>
+<% else %>
+<%= link_to("Sign Out", destroy_user_session_path, method: :delete )%>
+<% end %>
