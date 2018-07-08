@@ -5,6 +5,17 @@ class TopicsController < ApplicationController
   # GET /topics.json
   def index
     @topics = Topic.all
+    @new_topics = Topic.all.order(created_at: :desc).first(5)
+    
+    count = Hash.new
+    
+    Topic.ids.each do |id|
+      count[id] = Topic.find(id).comments.count
+    end
+    
+    comment = Hash[ count.sort_by{ |_, v| -v } ]
+    
+    @many_comments_topics = Topic.find(comment.keys)
   end
 
   # GET /topics/1
