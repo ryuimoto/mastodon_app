@@ -74,7 +74,7 @@
         <td><%= topic.title %></td>
         <td><%= topic.body %></td>
         <td><%= User.find(topic.user_id).uid %></td>
-        <td><%= button_tag(link_to 'Show', topic) %> <%= topic.comments.count%></td>
+        <td><%= button_tag(link_to 'Show', topic) %></td>
         <% if current_user.id == topic.user_id %>
         <td><%= button_tag(link_to 'Edit', edit_topic_path(topic)) %></td>
         <td><%= button_tag(link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
