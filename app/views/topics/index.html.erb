@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<div class="left-side">
 <h1>Topics</h1>
 
 <table>
@@ -27,7 +28,8 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
+<div class="left-side">
 <h1>New</h1>
 
 <table>
@@ -55,7 +57,9 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
+<div class="left-side">
 <h1>Hot</h1>
 
 <table>
@@ -83,8 +87,10 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
-
+<div class="non">
 <%= button_tag(link_to 'New Topic', new_topic_path) %>
 <%= button_tag(link_to 'ログアウト', destroy_user_session_path, method: :delete) %>
+</div>
