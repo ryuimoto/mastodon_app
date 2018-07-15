@@ -1,11 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<div class="hogehoge">
+テスト
+</div>
+
 <div class="left-side">
 <h1>Topics</h1>
 
 <table>
   <thead>
     <tr>
+      <th> </th>
       <th>Title</th>
       <th>Body</th>
       <th>User</th>
@@ -16,6 +21,7 @@
   <tbody>
     <% @topics.each do |topic| %>
       <tr>
+        <td><%= image_tag(User.find(topic.user_id).avatar, :size=>"30x30")%></dt>
         <td><%= topic.title %></td>
         <td><%= topic.body %></td>
         <td><%= User.find(topic.user_id).uid %></td>
@@ -35,6 +41,7 @@
 <table>
   <thead>
     <tr>
+      <th> </th>
       <th>Title</th>
       <th>Body</th>
       <th>User</th>
@@ -45,6 +52,7 @@
   <tbody>
     <% @new_topics.each do |topic| %>
       <tr>
+        <td><%= image_tag(User.find(topic.user_id).avatar, :size=>"30x30")%></dt>
         <td><%= topic.title %></td>
         <td><%= topic.body %></td>
         <td><%= User.find(topic.user_id).uid %></td>
@@ -65,6 +73,7 @@
 <table>
   <thead>
     <tr>
+      <th> </th>
       <th>Title</th>
       <th>Body</th>
       <th>User</th>
@@ -75,6 +84,7 @@
   <tbody>
     <% @many_comments_topics.each do |topic| %>
       <tr>
+        <td><%= image_tag(User.find(topic.user_id).avatar, :size=>"30x30")%></dt>
         <td><%= topic.title %></td>
         <td><%= topic.body %></td>
         <td><%= User.find(topic.user_id).uid %></td>

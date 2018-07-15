@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <td><%= image_tag(User.find(@topic.user_id).avatar, :size=>"90x90")%></dt>
+</p>
+<p>
   <strong>Name:</strong>
   <%= User.find(@topic.user_id).uid  %>
 </p>
