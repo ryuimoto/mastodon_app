@@ -1,1 +1,1 @@
-<p><%= User.find(comment.user_id).uid %> : <%= comment.body %></p>
+<p><%= image_tag(User.find(@topic.user_id).avatar, :size=>"30x30")%><%= User.find(comment.user_id).uid %> : <%= comment.body %></p>

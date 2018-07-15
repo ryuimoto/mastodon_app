@@ -1,5 +1,5 @@
 <%= form_for([ @topic, Comment.new ], remote: true) do |form| %>
-    Your Comment:<br>
+    新しいコメントを書く:<br>
     <%= form.text_area :body, size: '50x20' %><br>
     <%= form.submit %>
 <% end %>
