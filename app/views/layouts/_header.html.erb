@@ -1,6 +1,6 @@
 <div class="top">
 <%= link_to("Home", root_path)%>
-<%= link_to("About", root_path)%>
+<%= link_to("About", about_path)%>
 <% if !user_signed_in? %>
 <%= link_to("Sign In", user_mastodon_omniauth_authorize_path)%>
 <% else %>
