@@ -1,45 +1,5 @@
-<!DOCTYPE html>
-<html lang="ja">
+<h1>このWebサービスにかんして</h1>
+このWebサービスはMastodonのアカウントでログインできる掲示板サービスです
 
-<body id="top">
-<p id="notice"><%= notice %></p>
-<header>
-<div class="inner">
-<!--トップページ専用メニュー-->
-<nav id="menubar-top">
-<ul class="inner">
-<li id="menu1"><%= link_to "HOME", root_path %></a></li>
-<li id="menu2"><%= link_to "TOPICS", topics_path %></a></li>
-<% if user_signed_in?%>
-<li id="menu3"><%= link_to("SIGN OUT", destroy_user_session_path, method: :delete )%></li>
-<% else %>
-<li id="menu3"><%= link_to "SIGN IN", user_mastodon_omniauth_authorize_path %></li>
-<% end %>
-<li id="menu4"><%= link_to  "LINK", root_path %></li>
-<li id="menu5"><%= link_to "CONTACT", root_path %></li>
-</ul>
-</nav>
-</div>
-</header>
+こちらに新しいスレッドを作成するたびに、自動的にBotがスレッドについて呟くようになっています。
 
-<footer>
-
-<!--footermenu-->
-
-<div id="copyright">
-<small>Copyright&copy; <a href="index.html">SAMPLE COMPANY</a> All Rights Reserved.</small>
-<span class="pr"><a href="http://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
-</div>
-
-</footer>
-
-<!--メニューの３本バー-->
-<div id="menubar_hdr" class="close"><span></span><span></span><span></span></div>
-<!--メニューの開閉処理条件設定　800px以下-->
-<script type="text/javascript">
-if (OCwindowWidth() <= 800) {
-	open_close("menubar_hdr", "menubar-s");
-}
-</script>
-</body>
-</html>

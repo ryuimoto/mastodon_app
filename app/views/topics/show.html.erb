@@ -1,28 +1,31 @@
 <p id="notice"><%= notice %></p>
 
+<div class="left-side">
+  
 <p>
   <td><%= image_tag(User.find(@topic.user_id).avatar, :size=>"90x90")%></dt>
 </p>
+
 <p>
   <strong>Name:</strong>
   <%= User.find(@topic.user_id).uid  %>
 </p>
 
+<% if current_user.id == @topic.user_id %>
+<%= button_tag(link_to 'Edit', edit_topic_path(@topic)) %>
+<% end %>
+</div>
+<div class="center">
 <p>
   <strong>Title:</strong>
   <%= @topic.title %>
 </p>
-
+</div>
 <p>
   <strong>Body:</strong>
   <%= @topic.body %>
 </p>
-
-<% if current_user.id == @topic.user_id %>
-<%= button_tag(link_to 'Edit', edit_topic_path(@topic)) %> |
-<% end %>
-
-<%= button_tag(link_to 'Back', topics_path) %>
+</div>
 
 <h2>Comments</h2>
   <div id="comments">
@@ -30,3 +33,6 @@
   </div>
 
   <%= render 'comments/new', post: @topic %>
+  
+  
+<%= button_tag(link_to 'Back', topics_path) %>
