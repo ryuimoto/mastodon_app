@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
 
+
+<p id="notice"><%= notice %></p>
+<div class="background">
 <div class="hogehoge">
-テスト
+トピック一覧
 </div>
 
 <div class="left-side">
-<h1>Topics</h1>
+<h1>トピック</h1>
 
 <table>
   <thead>
     <tr>
       <th> </th>
-      <th>Title</th>
-      <th>Body</th>
-      <th>User</th>
+      <th>タイトル</th>
+      <th>トピック</th>
+      <th>ユーザー</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,14 +23,14 @@
   <tbody>
     <% @topics.each do |topic| %>
       <tr>
-        <td><%= image_tag(User.find(topic.user_id).avatar, :size=>"30x30")%></dt>
-        <td><%= topic.title %></td>
+        <td><%= image_tag(User.find(topic.user_id).avatar, :size=>"100x100")%></dt>
+        <td><div class="white-word-color"><%= topic.title %></div></td>
         <td><%= topic.body %></td>
         <td><%= User.find(topic.user_id).uid %></td>
-        <td><%= button_tag(link_to 'Show', topic) %></td>
+        <td><%= button_tag(link_to '閲覧', topic) %></td>
         <% if user_signed_in? && current_user.id == topic.user_id %>
-        <td><%= button_tag(link_to 'Edit', edit_topic_path(topic)) %></td>
-        <td><%= button_tag(link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+        <td><%= button_tag(link_to '編集', edit_topic_path(topic)) %></td>
+        <td><%= button_tag(link_to '削除', topic, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
         <% end %>
       </tr>
     <% end %>
@@ -36,15 +38,15 @@
 </table>
 </div>
 <div class="left-side">
-<h1>New</h1>
+<h1>最新のトピック</h1>
 
 <table>
   <thead>
     <tr>
       <th> </th>
-      <th>Title</th>
-      <th>Body</th>
-      <th>User</th>
+      <th>タイトル</th>
+      <th>トピック</th>
+      <th>ユーザー</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -52,14 +54,14 @@
   <tbody>
     <% @new_topics.each do |topic| %>
       <tr>
-        <td><%= image_tag(User.find(topic.user_id).avatar, :size=>"30x30")%></dt>
+        <td><%= image_tag(User.find(topic.user_id).avatar, :size=>"100x100")%></dt>
         <td><%= topic.title %></td>
         <td><%= topic.body %></td>
         <td><%= User.find(topic.user_id).uid %></td>
-        <td><%= button_tag(link_to 'Show', topic) %></td>
+        <td><%= button_tag(link_to '閲覧', topic) %></td>
         <% if user_signed_in? && current_user.id == topic.user_id %>
-        <td><%= button_tag(link_to 'Edit', edit_topic_path(topic)) %></td>
-        <td><%= button_tag(link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+        <td><%= button_tag(link_to '編集', edit_topic_path(topic)) %></td>
+        <td><%= button_tag(link_to '削除', topic, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
         <% end %>
       </tr>
     <% end %>
@@ -67,40 +69,42 @@
 </table>
 </div>
 
-<div class="left-side">
-<h1>Hot</h1>
+<div class="right-side">
+<h1>人気のあるトピック</h1>
 
 <table>
   <thead>
     <tr>
       <th> </th>
-      <th>Title</th>
-      <th>Body</th>
-      <th>User</th>
+      <th>タイトル</th>
+      <th>トピック</th>
+      <th>ユーザー</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
+
+
   <tbody>
     <% @many_comments_topics.each do |topic| %>
       <tr>
-        <td><%= image_tag(User.find(topic.user_id).avatar, :size=>"30x30")%></dt>
+        <td><%= image_tag(User.find(topic.user_id).avatar, :size=>"100x100")%></dt>
         <td><%= topic.title %></td>
         <td><%= topic.body %></td>
         <td><%= User.find(topic.user_id).uid %></td>
-        <td><%= button_tag(link_to 'Show', topic) %></td>
+        <td><%= button_tag(link_to '閲覧', topic) %></td>
         <% if user_signed_in? && current_user.id == topic.user_id %>
-        <td><%= button_tag(link_to 'Edit', edit_topic_path(topic)) %></td>
-        <td><%= button_tag(link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+        <td><%= button_tag(link_to '編集', edit_topic_path(topic)) %></td>
+        <td><%= button_tag(link_to '削除', topic, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
         <% end %>
       </tr>
     <% end %>
-  </tbody>
 </table>
 </div>
 
 <br>
 <div class="non">
-<%= button_tag(link_to 'New Topic', new_topic_path) %>
+<%= button_tag(link_to '新規トピック作成', new_topic_path) %>
 <%= button_tag(link_to 'ログアウト', destroy_user_session_path, method: :delete) %>
+</div>
 </div>

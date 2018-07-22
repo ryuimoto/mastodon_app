@@ -1,5 +1,9 @@
+<div class="background">
 <%= form_for([ @topic, Comment.new ], remote: true) do |form| %>
     新しいコメントを書く:<br>
+    <div class="word-color">
     <%= form.text_area :body, size: '50x20' %><br>
+    </div>
     <%= form.submit %>
 <% end %>
+</div>
