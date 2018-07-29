@@ -58,10 +58,10 @@
         <td><%= topic.title %></td>
         <td><%= topic.body %></td>
         <td><%= User.find(topic.user_id).uid %></td>
-        <td><%= button_tag(link_to '閲覧', topic) %></td>
+        <td><%= link_to '閲覧', topic, class: 'btn btn-default' %></td>
         <% if user_signed_in? && current_user.id == topic.user_id %>
-        <td><%= button_tag(link_to '編集', edit_topic_path(topic)) %></td>
-        <td><%= button_tag(link_to '削除', topic, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+        <td><%= link_to '編集', edit_topic_path(topic), class: 'btn btn-default' %></td>
+        <td><%= link_to '削除', topic, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %></td>
         <% end %>
       </tr>
     <% end %>
@@ -92,10 +92,10 @@
         <td><%= topic.title %></td>
         <td><%= topic.body %></td>
         <td><%= User.find(topic.user_id).uid %></td>
-        <td><%= button_tag(link_to '閲覧', topic) %></td>
+        <td><%= link_to '閲覧', topic, class: 'btn btn-default' %></td>
         <% if user_signed_in? && current_user.id == topic.user_id %>
-        <td><%= button_tag(link_to '編集', edit_topic_path(topic)) %></td>
-        <td><%= button_tag(link_to '削除', topic, method: :delete, data: { confirm: 'Are you sure?' }) %></td>
+        <td><%= link_to '編集', edit_topic_path(topic), class: 'btn btn-default' %></td>
+        <td><%= link_to '削除', topic, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %></td>
         <% end %>
       </tr>
     <% end %>
